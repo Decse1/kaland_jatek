@@ -1,0 +1,7 @@
+C:\Users\PallerPeter\Documents\GitHub\kaland_jatek\kaland_jatek\bin\Debug\kaland_jatek.exe.config
+C:\Users\PallerPeter\Documents\GitHub\kaland_jatek\kaland_jatek\bin\Debug\kaland_jatek.exe
+C:\Users\PallerPeter\Documents\GitHub\kaland_jatek\kaland_jatek\bin\Debug\kaland_jatek.pdb
+C:\Users\PallerPeter\Documents\GitHub\kaland_jatek\kaland_jatek\obj\Debug\kaland_jatek.csproj.AssemblyReference.cache
+C:\Users\PallerPeter\Documents\GitHub\kaland_jatek\kaland_jatek\obj\Debug\kaland_jatek.csproj.CoreCompileInputs.cache
+C:\Users\PallerPeter\Documents\GitHub\kaland_jatek\kaland_jatek\obj\Debug\kaland_jatek.exe
+C:\Users\PallerPeter\Documents\GitHub\kaland_jatek\kaland_jatek\obj\Debug\kaland_jatek.pdb
