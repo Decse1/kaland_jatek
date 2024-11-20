@@ -1,0 +1,18 @@
+Kód;Név;Ügyesség;Életerő
+18;Óriáspók;9;5
+41;Tolvaj;7;6
+66;Törpe;8;5
+96;Fényimádók;9;11
+101;Iszapsárkány;10;6
+107;Első Ork;5;6
+107;Második Ork;6;5
+138;Xlaia;8;7
+140;Első Denevér;5;7
+140;Második Denevér;6;6
+153;Első Sündisznó;7;5
+153;Második Sündisznó;8;5
+155;Hobgoblin;7;8
+158;Galon;12;8
+182;Első Iszapsárkány;9;5
+182;Második Iszapsárkány;10;6
+188;Iszapsárkány;9;5
