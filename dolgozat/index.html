@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Star Wars</title>
+</head>
+<body>
+    <button type="button" onclick="loadDoc();">Lekérés</button>
+    <h1 style="text-align: center;color: darkblue;">Star Wars Szereplők</h1>
+    <main class="content"></main>
+
+</body>
+<script>
+    function loadDoc(){
+    let xhttp = new XMLHttpRequest();
+    
+    xhttp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            const obj = JSON.parse(this.responseText);
+            const content = document.getElementsByClassName('content')[0];
+            for(let character in obj.data){
+                console.log(obj.data[character]['_id']);
+                const div = document.createElement('div'); 
+                const h1 = document.createElement('h1');
+                const p = document.createElement('p');
+                const img = document.createElement('img');
+                h1.innerHTML = obj.data[character]['name'];
+                img.src = obj.data[character]['image'];
+                p.innerHTML = obj.data[character]['description'];
+                div.appendChild(h1);
+                div.appendChild(img);
+                div.appendChild(p);
+                content.appendChild(div)
+            }
+        }
+    };
+    xhttp.open('GET', 'https://starwars-databank-server.vercel.app/api/v1/characters?page=10&limit=10', true);
+    xhttp.setRequestHeader('Content-type', 'application/json');
+    xhttp.setRequestHeader('Accept', 'application/json'); 
+    xhttp.send();
+}
+</script>
+</html>
