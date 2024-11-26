@@ -1,0 +1,10 @@
+C:\Users\palle\Documents\GitHub\kaland_jatek\kaland_jatek_form\bin\Debug\kaland_jatek_form.exe.config
+C:\Users\palle\Documents\GitHub\kaland_jatek\kaland_jatek_form\bin\Debug\kaland_jatek_form.exe
+C:\Users\palle\Documents\GitHub\kaland_jatek\kaland_jatek_form\bin\Debug\kaland_jatek_form.pdb
+C:\Users\palle\Documents\GitHub\kaland_jatek\kaland_jatek_form\obj\Debug\kaland_jatek_form.csproj.AssemblyReference.cache
+C:\Users\palle\Documents\GitHub\kaland_jatek\kaland_jatek_form\obj\Debug\kaland_jatek_form.Form1.resources
+C:\Users\palle\Documents\GitHub\kaland_jatek\kaland_jatek_form\obj\Debug\kaland_jatek_form.Properties.Resources.resources
+C:\Users\palle\Documents\GitHub\kaland_jatek\kaland_jatek_form\obj\Debug\kaland_jatek_form.csproj.GenerateResource.cache
+C:\Users\palle\Documents\GitHub\kaland_jatek\kaland_jatek_form\obj\Debug\kaland_jatek_form.csproj.CoreCompileInputs.cache
+C:\Users\palle\Documents\GitHub\kaland_jatek\kaland_jatek_form\obj\Debug\kaland_jatek_form.exe
+C:\Users\palle\Documents\GitHub\kaland_jatek\kaland_jatek_form\obj\Debug\kaland_jatek_form.pdb
