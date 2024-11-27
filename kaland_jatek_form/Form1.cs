@@ -41,11 +41,12 @@ namespace kaland_jatek_form
         public static int dice()
         {
             int kocka = 0;
-            Random rnd = new Random();
+            
             kocka = rnd.Next(1, 7);
             return kocka;
         }
 
+        static Random rnd = new Random();
         static kartya[] kartyak = new kartya[200];
         static int[,] kartyaopciok = new int[5,90];
 
@@ -56,6 +57,12 @@ namespace kaland_jatek_form
         static int start_szerencse = 0;
         static int start_arany = 0;
         static int start_etel = 0;
+
+        static int option1 = 0;
+        static int option2 = 0;
+        static int option3 = 0;
+        static int option4 = 0;
+
 
         static int kovetkezo_kartya = 0;
         public Form1()
@@ -129,6 +136,19 @@ namespace kaland_jatek_form
 
         private void start_btn_Click(object sender, EventArgs e)
         {
+            kovetkezo_kartya = 0;
+            start_ugyesseg = 0;
+            start_eletero = 0;
+            start_szerencse = 0;
+            start_arany = 0;
+            start_etel = 0;
+
+            player.ugyesseg = start_ugyesseg;
+            player.eletero = start_eletero;
+            player.szerencse = start_szerencse;
+            player.arany = start_arany;
+            player.etel = start_etel;
+
             start_btn.Visible = false;
             start_ugyesseg = dice() + 6;
             start_eletero = dice() + dice() + 12;
@@ -154,7 +174,7 @@ namespace kaland_jatek_form
         private void continue_btn_Click(object sender, EventArgs e)
         {
             
-            luck_lbl.Text = kartyak[kovetkezo_kartya].kovetkezo.ToString() + "- -" + kovetkezo_kartya;
+            //luck_lbl.Text = kartyak[kovetkezo_kartya].kovetkezo.ToString() + "- -" + kovetkezo_kartya;
             if (kartyak[kovetkezo_kartya].kovetkezo < 201)
             {
                 card_lbl.Text = kartyak[kovetkezo_kartya].szoveg;
@@ -164,28 +184,34 @@ namespace kaland_jatek_form
             {
                 if (option1_rbtn.Checked)
                 {
-                    kovetkezo_kartya = int.Parse(option1_rbtn.Text) - 1;
+                    kovetkezo_kartya = option1 - 1;
                 }
                 if (option2_rbtn.Checked)
                 {
-                    kovetkezo_kartya = int.Parse(option2_rbtn.Text) - 1;
+                    kovetkezo_kartya = option2 - 1;
                 }
                 if (option3_rbtn.Checked)
                 {
-                    kovetkezo_kartya = int.Parse(option3_rbtn.Text) - 1;
+                    kovetkezo_kartya = option3 - 1;
                 }
                 if (option4_rbtn.Checked)
                 {
-                    kovetkezo_kartya = int.Parse(option4_rbtn.Text) -1;
+                    kovetkezo_kartya = option4 - 1;
                 }
                 card_lbl.Text = kartyak[kovetkezo_kartya].szoveg;
             }
+
+            option1_rbtn.Checked = false;
             option1_rbtn.Visible = false;
+
+            option2_rbtn.Checked = false;
             option2_rbtn.Visible = false;
+
+            option3_rbtn.Checked = false;
             option3_rbtn.Visible = false;
+
+            option4_rbtn.Checked = false;
             option4_rbtn.Visible = false;
-
-
 
             if (kartyak[kovetkezo_kartya].kovetkezo < 201)
             {
@@ -218,28 +244,43 @@ namespace kaland_jatek_form
                     if (opcio_db == 2)
                     {
                         option1_rbtn.Text = kartyaopciok[1, g].ToString();
-                        option2_rbtn.Text = kartyaopciok[2, g].ToString();
+                        option1 = kartyaopciok[1, g];
                         option1_rbtn.Visible = true;
+
+                        option2_rbtn.Text = kartyaopciok[2, g].ToString();
+                        option2 = kartyaopciok[2, g];
                         option2_rbtn.Visible = true;
                     }
                     else if (opcio_db == 3)
                     {
                         option1_rbtn.Text = kartyaopciok[1, g].ToString();
-                        option2_rbtn.Text = kartyaopciok[2, g].ToString();
-                        option3_rbtn.Text = kartyaopciok[3, g].ToString();
+                        option1 = kartyaopciok[1, g];
                         option1_rbtn.Visible = true;
+
+                        option2_rbtn.Text = kartyaopciok[2, g].ToString();
+                        option2 = kartyaopciok[2, g];
                         option2_rbtn.Visible = true;
+
+                        option3_rbtn.Text = kartyaopciok[3, g].ToString();
+                        option3 = kartyaopciok[3, g];
                         option3_rbtn.Visible = true;
                     }
                     else if (opcio_db == 4)
                     {
                         option1_rbtn.Text = kartyaopciok[1, g].ToString();
-                        option2_rbtn.Text = kartyaopciok[2, g].ToString();
-                        option3_rbtn.Text = kartyaopciok[3, g].ToString();
-                        option4_rbtn.Text = kartyaopciok[4, g].ToString();
+                        option1 = kartyaopciok[1, g];
                         option1_rbtn.Visible = true;
+
+                        option2_rbtn.Text = kartyaopciok[2, g].ToString();
+                        option2 = kartyaopciok[2, g];
                         option2_rbtn.Visible = true;
+
+                        option3_rbtn.Text = kartyaopciok[3, g].ToString();
+                        option3 = kartyaopciok[3, g];
                         option3_rbtn.Visible = true;
+
+                        option4_rbtn.Text = kartyaopciok[4, g].ToString();
+                        option4 = kartyaopciok[4, g];
                         option4_rbtn.Visible = true;
                     }
                 }
