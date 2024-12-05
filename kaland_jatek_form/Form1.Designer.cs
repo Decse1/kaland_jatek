@@ -40,6 +40,8 @@
             this.strenght_lbl = new System.Windows.Forms.Label();
             this.luck_lbl = new System.Windows.Forms.Label();
             this.continue_btn = new System.Windows.Forms.Button();
+            this.nextround_btn = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,7 +126,7 @@
             // 
             // exit_btn
             // 
-            this.exit_btn.Location = new System.Drawing.Point(622, 359);
+            this.exit_btn.Location = new System.Drawing.Point(612, 359);
             this.exit_btn.Margin = new System.Windows.Forms.Padding(2);
             this.exit_btn.Name = "exit_btn";
             this.exit_btn.Size = new System.Drawing.Size(75, 32);
@@ -135,7 +137,7 @@
             // 
             // start_btn
             // 
-            this.start_btn.Location = new System.Drawing.Point(543, 359);
+            this.start_btn.Location = new System.Drawing.Point(612, 323);
             this.start_btn.Margin = new System.Windows.Forms.Padding(2);
             this.start_btn.Name = "start_btn";
             this.start_btn.Size = new System.Drawing.Size(75, 32);
@@ -185,7 +187,7 @@
             // 
             // continue_btn
             // 
-            this.continue_btn.Location = new System.Drawing.Point(375, 360);
+            this.continue_btn.Location = new System.Drawing.Point(375, 359);
             this.continue_btn.Margin = new System.Windows.Forms.Padding(2);
             this.continue_btn.Name = "continue_btn";
             this.continue_btn.Size = new System.Drawing.Size(75, 32);
@@ -194,12 +196,34 @@
             this.continue_btn.UseVisualStyleBackColor = true;
             this.continue_btn.Click += new System.EventHandler(this.continue_btn_Click);
             // 
+            // nextround_btn
+            // 
+            this.nextround_btn.Location = new System.Drawing.Point(454, 359);
+            this.nextround_btn.Margin = new System.Windows.Forms.Padding(2);
+            this.nextround_btn.Name = "nextround_btn";
+            this.nextround_btn.Size = new System.Drawing.Size(154, 32);
+            this.nextround_btn.TabIndex = 8;
+            this.nextround_btn.Text = "Következő kör";
+            this.nextround_btn.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(454, 332);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(128, 17);
+            this.checkBox1.TabIndex = 9;
+            this.checkBox1.Text = "szerencse használata";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 407);
             this.ControlBox = false;
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.nextround_btn);
             this.Controls.Add(this.continue_btn);
             this.Controls.Add(this.luck_lbl);
             this.Controls.Add(this.strenght_lbl);
@@ -234,6 +258,8 @@
         private System.Windows.Forms.RadioButton option2_rbtn;
         private System.Windows.Forms.RadioButton option1_rbtn;
         private System.Windows.Forms.Button continue_btn;
+        private System.Windows.Forms.Button nextround_btn;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 
