@@ -1,18 +1,17 @@
-Kód;Név;Ügyesség;Életerő
-18;Óriáspók;9;5
-41;Tolvaj;7;6
-66;Törpe;8;5
-96;Fényimádók;9;11
-101;Iszapsárkány;10;6
-107;Első Ork;5;6
-107;Második Ork;6;5
-138;Xlaia;8;7
-140;Első Denevér;5;7
-140;Második Denevér;6;6
-153;Első Sündisznó;7;5
-153;Második Sündisznó;8;5
-155;Hobgoblin;7;8
-158;Galon;12;8
-182;Első Iszapsárkány;9;5
-182;Második Iszapsárkány;10;6
-188;Iszapsárkány;9;5
+18_Óriáspók_9_5
+41_Tolvaj_7_6
+66_Törpe_8_5
+96_Fényimádók_9_11
+101_Iszapsárkány_10_6
+107_Első Ork_5_6
+107_Második Ork_6_5
+138_Xlaia_8_7
+140_Első Denevér_5_7
+140_Második Denevér_6_6
+153_Első Sündisznó_7_5
+153_Második Sündisznó_8_5
+155_Hobgoblin_7_8
+158_Galon_12_8
+182_Első Iszapsárkány_9_5
+182_Második Iszapsárkány_10_6
+188_Iszapsárkány_9_5

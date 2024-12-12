@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Threading;
 
 namespace kaland_jatek_form
 {
@@ -81,44 +82,43 @@ namespace kaland_jatek_form
             
         }
 
-        public void csata(int index_kartya)
+        public int[] csata_1( int[]stats, int ii)
         {
-            int szorny_index = 0;
-            int ii = 0;
-            while(ii < szornyek.Count && szornyek[szorny_index].kartya-1 != index_kartya)
+            int[] eredmeny = stats;
+            eredmeny[0] += dice() + dice();
+            eredmeny[2] += dice() + dice();
+
+            enemy_strenght_lbl.Text = $"{szornyek[ii].nev} harc erő: {stats[2]}";
+            enemy_healt_lbl.Text = $"{szornyek[ii].nev} elet erő: {stats[3]}";
+
+            if (eredmeny[0] > eredmeny[2])
             {
-                ii++;
+                eredmeny[3] -= 2;
+            }
+            else if (eredmeny[0] < eredmeny[2])
+            {
+                eredmeny[1] -= 2;
             }
             
-            if (szornyek[ii+1].kartya-1 == index_kartya)
-            {
+            return eredmeny;
+        }
 
-            }
-            else
-            {
-                int szorny_csata_elet = 0;
-                int szorny_csata_ugyes = 0;
-                int player_csata_elet = 0;
-                int player_csata_ugyes = 0;
-                do
-                {
-                    szorny_csata_elet = szornyek[ii].eletero;
-                    szorny_csata_ugyes = szornyek[ii].ugyesseg;
-                    player_csata_elet = player.eletero;
-                    player_csata_ugyes = player.ugyesseg;
-                    szorny_csata_ugyes += dice() + dice();
-                    player_csata_ugyes += dice() + dice();
-                    if(player_csata_ugyes > szorny_csata_ugyes)
-                    {
-                        szorny_csata_elet -= 2;
-                    }
-                    else if (player_csata_ugyes < szorny_csata_ugyes)
-                    {
-                        player_csata_elet -= 2;
-                    }
+        public int[] csata_2(int[] stats)
+        {
+            int[] eredmeny = stats;
+            eredmeny[0] += dice() + dice();
+            eredmeny[2] += dice() + dice();
 
-                } while (nextround_btn. && (player_csata_elet > 0 && szorny_csata_elet > 0));
+            if (eredmeny[0] > eredmeny[2])
+            {
+                eredmeny[3] -= 2;
             }
+            else if (eredmeny[0] < eredmeny[2])
+            {
+                eredmeny[1] -= 2;
+            }
+
+            return eredmeny;
         }
 
         static Random rnd = new Random();
@@ -170,7 +170,7 @@ namespace kaland_jatek_form
             }
             sr.Close();
             StreamReader sr3 = new StreamReader("szorny.txt", Encoding.UTF8);
-            while (!sr.EndOfStream)
+            while (!sr3.EndOfStream)
             {
                 string z = sr3.ReadLine();
                 szorny tmp = new szorny(z);
@@ -209,13 +209,21 @@ namespace kaland_jatek_form
                 kdb2++;
             }
             sr2.Close();
+            #endregion
             option1_rbtn.Visible = false;
             option2_rbtn.Visible = false;
             option3_rbtn.Visible = false;
             option4_rbtn.Visible = false;
 
             continue_btn.Visible = false;
-            #endregion
+
+            enemy_healt_lbl.Visible = false;
+            enemy_strenght_lbl.Visible = false;
+            prepare_lbl.Visible = false;
+            fight_btn.Visible = false;
+            nextround_btn.Visible = false;
+            useluck_cb.Visible = false;
+            
         }
 
         private void start_btn_Click(object sender, EventArgs e)
@@ -373,10 +381,54 @@ namespace kaland_jatek_form
             }
             else
             {
-                csata(kovetkezo_kartya);
+                continue_btn.Visible = false;
+                fight_btn.Visible = true;
+                
             }
             //luck_lbl.Text = kartyak[kovetkezo_kartya].kovetkezo.ToString() + "- -" + kovetkezo_kartya;
             
+        }
+
+        private void fight_btn_Click(object sender, EventArgs e)
+        {
+            fight_btn.Visible = false;
+            nextround_btn.Visible = true;
+            //csata(kovetkezo_kartya);
+        }
+
+        private void nextround_btn_Click(object sender, EventArgs e)
+        {
+            //int szorny_index = 0;
+            /*int p_ugy, int p_elet, int sz_ugy, int sz_elet*/
+            int[] stats = new int[4];
+            int ii = 0;
+            while (ii < szornyek.Count && szornyek[ii].kartya - 1 != kovetkezo_kartya)
+            {
+                ii++;
+            }
+
+            if (szornyek[ii + 1].kartya - 1 == kovetkezo_kartya)
+            {
+                prepare_lbl.Text = "gg";
+            }
+            else
+            {
+                stats[0] = player.ugyesseg;
+                stats[1] = player.eletero;
+                stats[2] = szornyek[ii].ugyesseg;
+                stats[3] = szornyek[ii].eletero;
+                
+                
+                enemy_strenght_lbl.Visible = true;
+                enemy_healt_lbl.Visible = true;
+
+                health_lbl.Text = $"Élet erő: {stats[1]}";
+                strenght_lbl.Text = $"Harc erő: {stats[0]}";
+                luck_lbl.Text = $"Szerencse: {player.szerencse}";
+                
+
+                csata_1(stats,ii);
+            }
         }
     }
 }

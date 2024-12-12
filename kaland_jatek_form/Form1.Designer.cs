@@ -41,7 +41,11 @@
             this.luck_lbl = new System.Windows.Forms.Label();
             this.continue_btn = new System.Windows.Forms.Button();
             this.nextround_btn = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.useluck_cb = new System.Windows.Forms.CheckBox();
+            this.prepare_lbl = new System.Windows.Forms.Label();
+            this.enemy_strenght_lbl = new System.Windows.Forms.Label();
+            this.enemy_healt_lbl = new System.Windows.Forms.Label();
+            this.fight_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -205,16 +209,67 @@
             this.nextround_btn.TabIndex = 8;
             this.nextround_btn.Text = "Következő kör";
             this.nextround_btn.UseVisualStyleBackColor = true;
+            this.nextround_btn.Click += new System.EventHandler(this.nextround_btn_Click);
             // 
-            // checkBox1
+            // useluck_cb
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(454, 332);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(128, 17);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "szerencse használata";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.useluck_cb.AutoSize = true;
+            this.useluck_cb.Location = new System.Drawing.Point(454, 296);
+            this.useluck_cb.Name = "useluck_cb";
+            this.useluck_cb.Size = new System.Drawing.Size(128, 17);
+            this.useluck_cb.TabIndex = 9;
+            this.useluck_cb.Text = "szerencse használata";
+            this.useluck_cb.UseVisualStyleBackColor = true;
+            // 
+            // prepare_lbl
+            // 
+            this.prepare_lbl.AutoSize = true;
+            this.prepare_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prepare_lbl.Location = new System.Drawing.Point(371, 169);
+            this.prepare_lbl.Margin = new System.Windows.Forms.Padding(8, 4, 4, 4);
+            this.prepare_lbl.MaximumSize = new System.Drawing.Size(150, 24);
+            this.prepare_lbl.MinimumSize = new System.Drawing.Size(150, 24);
+            this.prepare_lbl.Name = "prepare_lbl";
+            this.prepare_lbl.Size = new System.Drawing.Size(150, 24);
+            this.prepare_lbl.TabIndex = 10;
+            this.prepare_lbl.Text = "kovkor";
+            // 
+            // enemy_strenght_lbl
+            // 
+            this.enemy_strenght_lbl.AutoSize = true;
+            this.enemy_strenght_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enemy_strenght_lbl.Location = new System.Drawing.Point(371, 137);
+            this.enemy_strenght_lbl.Margin = new System.Windows.Forms.Padding(8, 4, 4, 4);
+            this.enemy_strenght_lbl.MaximumSize = new System.Drawing.Size(150, 24);
+            this.enemy_strenght_lbl.MinimumSize = new System.Drawing.Size(150, 24);
+            this.enemy_strenght_lbl.Name = "enemy_strenght_lbl";
+            this.enemy_strenght_lbl.Size = new System.Drawing.Size(150, 24);
+            this.enemy_strenght_lbl.TabIndex = 12;
+            this.enemy_strenght_lbl.Text = "Harc erő:";
+            // 
+            // enemy_healt_lbl
+            // 
+            this.enemy_healt_lbl.AutoSize = true;
+            this.enemy_healt_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enemy_healt_lbl.Location = new System.Drawing.Point(371, 105);
+            this.enemy_healt_lbl.Margin = new System.Windows.Forms.Padding(8, 4, 4, 4);
+            this.enemy_healt_lbl.MaximumSize = new System.Drawing.Size(150, 24);
+            this.enemy_healt_lbl.MinimumSize = new System.Drawing.Size(150, 24);
+            this.enemy_healt_lbl.Name = "enemy_healt_lbl";
+            this.enemy_healt_lbl.Size = new System.Drawing.Size(150, 24);
+            this.enemy_healt_lbl.TabIndex = 11;
+            this.enemy_healt_lbl.Text = "Ellenfél élet erő: ";
+            // 
+            // fight_btn
+            // 
+            this.fight_btn.Location = new System.Drawing.Point(454, 323);
+            this.fight_btn.Margin = new System.Windows.Forms.Padding(2);
+            this.fight_btn.Name = "fight_btn";
+            this.fight_btn.Size = new System.Drawing.Size(154, 32);
+            this.fight_btn.TabIndex = 13;
+            this.fight_btn.Text = "Csata kezdete";
+            this.fight_btn.UseVisualStyleBackColor = true;
+            this.fight_btn.Click += new System.EventHandler(this.fight_btn_Click);
             // 
             // Form1
             // 
@@ -222,7 +277,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 407);
             this.ControlBox = false;
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.fight_btn);
+            this.Controls.Add(this.enemy_strenght_lbl);
+            this.Controls.Add(this.enemy_healt_lbl);
+            this.Controls.Add(this.prepare_lbl);
+            this.Controls.Add(this.useluck_cb);
             this.Controls.Add(this.nextround_btn);
             this.Controls.Add(this.continue_btn);
             this.Controls.Add(this.luck_lbl);
@@ -259,7 +318,11 @@
         private System.Windows.Forms.RadioButton option1_rbtn;
         private System.Windows.Forms.Button continue_btn;
         private System.Windows.Forms.Button nextround_btn;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox useluck_cb;
+        private System.Windows.Forms.Label prepare_lbl;
+        private System.Windows.Forms.Label enemy_strenght_lbl;
+        private System.Windows.Forms.Label enemy_healt_lbl;
+        private System.Windows.Forms.Button fight_btn;
     }
 }
 
