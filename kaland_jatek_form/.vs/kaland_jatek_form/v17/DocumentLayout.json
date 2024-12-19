@@ -12,9 +12,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|kaland_jatek_form||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BE174AD-7F30-4244-A398-26137A26022E}|kaland_jatek_form.csproj|c:\\users\\pallerpeter\\documents\\github\\kaland_jatek\\kaland_jatek_form\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +39,7 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\PallerPeter\\Documents\\GitHub\\kaland_jatek\\kaland_jatek_form\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AQIAAI4BAAAAAAAAAAAUwFQAAAApAAAA",
+              "ViewState": "AQIAAA4BAAAAAAAAAAAswPYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-24T13:54:29.985Z",
               "EditorCaption": ""
@@ -56,8 +53,7 @@
               "ToolTip": "C:\\Users\\PallerPeter\\Documents\\GitHub\\kaland_jatek\\kaland_jatek_form\\kaland_jatek_form.csproj",
               "RelativeToolTip": "kaland_jatek_form.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-27T07:19:03.426Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-27T07:19:03.426Z"
             },
             {
               "$type": "Document",
@@ -68,8 +64,7 @@
               "ToolTip": "C:\\Users\\PallerPeter\\Documents\\GitHub\\kaland_jatek\\kaland_jatek_form\\Form1.cs [Design]",
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T12:30:15.341Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-24T12:30:15.341Z"
             }
           ]
         }

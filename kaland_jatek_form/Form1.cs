@@ -82,27 +82,6 @@ namespace kaland_jatek_form
             
         }
 
-        public int[] csata_1( int[]stats, int ii)
-        {
-            int[] eredmeny = stats;
-            eredmeny[0] += dice() + dice();
-            eredmeny[2] += dice() + dice();
-
-            enemy_strenght_lbl.Text = $"{szornyek[ii].nev} harc erő: {stats[2]}";
-            enemy_healt_lbl.Text = $"{szornyek[ii].nev} elet erő: {stats[3]}";
-
-            if (eredmeny[0] > eredmeny[2])
-            {
-                eredmeny[3] -= 2;
-            }
-            else if (eredmeny[0] < eredmeny[2])
-            {
-                eredmeny[1] -= 2;
-            }
-            
-            return eredmeny;
-        }
-
         public int[] csata_2(int[] stats)
         {
             int[] eredmeny = stats;
@@ -139,6 +118,8 @@ namespace kaland_jatek_form
         static int option3 = 0;
         static int option4 = 0;
 
+        static bool szornyecske = false;
+        int szornydb = 0;
 
         static int kovetkezo_kartya = 0;
         public Form1()
@@ -402,32 +383,47 @@ namespace kaland_jatek_form
             /*int p_ugy, int p_elet, int sz_ugy, int sz_elet*/
             int[] stats = new int[4];
             int ii = 0;
-            while (ii < szornyek.Count && szornyek[ii].kartya - 1 != kovetkezo_kartya)
+            
+            if (!szornyecske)
             {
-                ii++;
+                while (ii < szornyek.Count && szornyek[ii].kartya - 1 != kovetkezo_kartya)
+                {
+                    ii++;
+                    szornyecske = true;
+                }
             }
+           
 
-            if (szornyek[ii + 1].kartya - 1 == kovetkezo_kartya)
+            if (szornyek[ii + 1].kartya - 1 == kovetkezo_kartya && szornydb == 0)
             {
-                prepare_lbl.Text = "gg";
+                szornydb = 2;
+            }
+            if(szornydb == 2)
+            {
+
             }
             else
             {
-                stats[0] = player.ugyesseg;
-                stats[1] = player.eletero;
-                stats[2] = szornyek[ii].ugyesseg;
-                stats[3] = szornyek[ii].eletero;
-                
-                
                 enemy_strenght_lbl.Visible = true;
                 enemy_healt_lbl.Visible = true;
+                int[] eredmeny = stats;
+                player.ugyesseg += dice() + dice();
+                szornyek[ii].ugyesseg += dice() + dice();
 
-                health_lbl.Text = $"Élet erő: {stats[1]}";
-                strenght_lbl.Text = $"Harc erő: {stats[0]}";
+                enemy_strenght_lbl.Text = $"{szornyek[ii].nev} harc erő: {szornyek[ii].ugyesseg}";
+                enemy_healt_lbl.Text = $"{szornyek[ii].nev} elet erő: {szornyek[ii].eletero}";
+                health_lbl.Text = $"Élet erő: {player.eletero}";
+                strenght_lbl.Text = $"Harc erő: {player.ugyesseg}";
                 luck_lbl.Text = $"Szerencse: {player.szerencse}";
-                
 
-                csata_1(stats,ii);
+                if (player.ugyesseg > szornyek[ii].ugyesseg)
+                {
+                    szornyek[ii].eletero -= 2;
+                }
+                else if (player.ugyesseg < szornyek[ii].ugyesseg)
+                {
+                    player.eletero -= 2;
+                }  
             }
         }
     }
