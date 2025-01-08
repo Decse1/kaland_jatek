@@ -82,23 +82,6 @@ namespace kaland_jatek_form
             
         }
 
-        public int[] csata_2(int[] stats)
-        {
-            int[] eredmeny = stats;
-            eredmeny[0] += dice() + dice();
-            eredmeny[2] += dice() + dice();
-
-            if (eredmeny[0] > eredmeny[2])
-            {
-                eredmeny[3] -= 2;
-            }
-            else if (eredmeny[0] < eredmeny[2])
-            {
-                eredmeny[1] -= 2;
-            }
-
-            return eredmeny;
-        }
 
         static Random rnd = new Random();
         static kartya[] kartyak = new kartya[200];
@@ -246,6 +229,8 @@ namespace kaland_jatek_form
 
         private void continue_btn_Click(object sender, EventArgs e)
         {
+            enemy_healt_lbl.Visible = false;
+            enemy_strenght_lbl.Visible = false;
             if (!kartyak[kovetkezo_kartya].szorny)
             {
                 if (kartyak[kovetkezo_kartya].kovetkezo < 201)
@@ -362,6 +347,7 @@ namespace kaland_jatek_form
             }
             else
             {
+                card_lbl.Text = kartyak[kovetkezo_kartya].szoveg;
                 continue_btn.Visible = false;
                 fight_btn.Visible = true;
                 
@@ -369,62 +355,186 @@ namespace kaland_jatek_form
             //luck_lbl.Text = kartyak[kovetkezo_kartya].kovetkezo.ToString() + "- -" + kovetkezo_kartya;
             
         }
+        public int ii = 0;
 
         private void fight_btn_Click(object sender, EventArgs e)
         {
             fight_btn.Visible = false;
             nextround_btn.Visible = true;
+            while (ii < szornyek.Count && szornyek[ii].kartya - 1 != kovetkezo_kartya)
+            {
+                ii++;
+            }
             //csata(kovetkezo_kartya);
         }
-
+       
         private void nextround_btn_Click(object sender, EventArgs e)
         {
-            //int szorny_index = 0;
-            /*int p_ugy, int p_elet, int sz_ugy, int sz_elet*/
-            int[] stats = new int[4];
-            int ii = 0;
+            int ellenél1 = 0;
+            int ellenha1 = 0;
+            int ellenha2 = 0;
+            int ellenél2 = 0;
+            enemy_strenght_lbl.Visible = true;
+            enemy_healt_lbl.Visible = true;
             
-            if (!szornyecske)
-            {
-                while (ii < szornyek.Count && szornyek[ii].kartya - 1 != kovetkezo_kartya)
-                {
-                    ii++;
-                    szornyecske = true;
-                }
-            }
-           
+
 
             if (szornyek[ii + 1].kartya - 1 == kovetkezo_kartya && szornydb == 0)
             {
                 szornydb = 2;
             }
+            
             if(szornydb == 2)
             {
+                if(player.eletero > 0 && (szornyek[ii].eletero > 0 || szornyek[ii+1].eletero > 0))
+                {
+                    if(ellenha1 > 0)
+                    {
+                        ellenél1 = szornyek[ii].eletero;
+                        ellenha1 = szornyek[ii].ugyesseg;
+                        enemy_strenght_lbl.Text = $"{szornyek[ii].nev} harc erő: {ellenha1}";
+                        enemy_healt_lbl.Text = $"{szornyek[ii].nev} élet erő: {ellenél1}";
+                        health_lbl.Text = $"Élet erő: {player.eletero}";
+                        strenght_lbl.Text = $"Harc erő: {player.ugyesseg}";
+                        luck_lbl.Text = $"Szerencse: {player.szerencse}";
 
+
+                        int pd = dice() + dice();
+                        if (player.ugyesseg + pd <= 100)
+                        {
+                            player.ugyesseg += pd;
+                        }
+                        int szd = dice() + dice();
+                        if (ellenha1 + szd <= 100)
+                        {
+                            ellenha1 += szd;
+                        }
+                        if (player.eletero > 0 && ellenél1 > 0)
+                        {
+                            if (player.ugyesseg > ellenha1)
+                            {
+                                ellenél1 -= 2;
+                            }
+                            else if (player.ugyesseg < ellenha1)
+                            {
+                                player.eletero -= 2;
+                            }
+                        }
+                        enemy_strenght_lbl.Text = $"{szornyek[ii].nev} harc erő: {ellenha1}";
+                        enemy_healt_lbl.Text = $"{szornyek[ii].nev} élet erő: {ellenél1}";
+                        health_lbl.Text = $"Élet erő: {player.eletero}";
+                        strenght_lbl.Text = $"Harc erő: {player.ugyesseg}";
+                        luck_lbl.Text = $"Szerencse: {player.szerencse}";
+                    }
+                    else
+                    {
+                        ellenél2 = szornyek[ii+1].eletero;
+                        ellenha2 = szornyek[ii+1].ugyesseg;
+                        enemy_strenght_lbl.Text = $"{szornyek[ii+1].nev} harc erő: {ellenha2}";
+                        enemy_healt_lbl.Text = $"{szornyek[ii+1].nev} élet erő: {ellenél2}";
+                        health_lbl.Text = $"Élet erő: {player.eletero}";
+                        strenght_lbl.Text = $"Harc erő: {player.ugyesseg}";
+                        luck_lbl.Text = $"Szerencse: {player.szerencse}";
+
+
+                        int pd = dice() + dice();
+                        if (player.ugyesseg + pd <= 100)
+                        {
+                            player.ugyesseg += pd;
+                        }
+                        int szd = dice() + dice();
+                        if (ellenha2 + szd <= 100)
+                        {
+                            ellenha2 += szd;
+                        }
+                        if (player.eletero > 0 && ellenél2 > 0)
+                        {
+                            if (player.ugyesseg > ellenha2)
+                            {
+                                ellenél2 -= 2;
+                            }
+                            else if (player.ugyesseg < ellenha2)
+                            {
+                                player.eletero -= 2;
+                            }
+                        }
+                        enemy_strenght_lbl.Text = $"{szornyek[ii+1].nev} harc erő: {ellenha2}";
+                        enemy_healt_lbl.Text = $"{szornyek[ii+1].nev} élet erő: {ellenél2}";
+                        health_lbl.Text = $"Élet erő: {player.eletero}";
+                        strenght_lbl.Text = $"Harc erő: {player.ugyesseg}";
+                        luck_lbl.Text = $"Szerencse: {player.szerencse}";
+                    }
+                    if (player.eletero <= 0)
+                    {
+                        card_lbl.Text = "Meghaltál";
+                        start_btn.Text = "Új játék";
+                        start_btn.Visible = true;
+                        nextround_btn.Visible = false;
+                        ii = 0;
+                    }
+                    if (ellenél1 <= 0 && ellenél2 <= 0)
+                    {
+                        continue_btn.Visible = true;
+                        nextround_btn.Visible = false;
+                        kartyak[kovetkezo_kartya].szorny = false;
+                        ii = 0;
+                    }
+
+                }
             }
             else
             {
-                enemy_strenght_lbl.Visible = true;
-                enemy_healt_lbl.Visible = true;
-                int[] eredmeny = stats;
-                player.ugyesseg += dice() + dice();
-                szornyek[ii].ugyesseg += dice() + dice();
-
-                enemy_strenght_lbl.Text = $"{szornyek[ii].nev} harc erő: {szornyek[ii].ugyesseg}";
-                enemy_healt_lbl.Text = $"{szornyek[ii].nev} elet erő: {szornyek[ii].eletero}";
+                ellenél1 = szornyek[ii].eletero;
+                ellenha1 = szornyek[ii].ugyesseg;
+                enemy_strenght_lbl.Text = $"{szornyek[ii].nev} harc erő: {ellenha1}";
+                enemy_healt_lbl.Text = $"{szornyek[ii].nev} élet erő: {ellenél1}";
                 health_lbl.Text = $"Élet erő: {player.eletero}";
                 strenght_lbl.Text = $"Harc erő: {player.ugyesseg}";
                 luck_lbl.Text = $"Szerencse: {player.szerencse}";
+               
 
-                if (player.ugyesseg > szornyek[ii].ugyesseg)
+                int pd = dice() + dice();
+                if (player.ugyesseg + pd <= 100)
                 {
-                    szornyek[ii].eletero -= 2;
+                    player.ugyesseg += pd;
                 }
-                else if (player.ugyesseg < szornyek[ii].ugyesseg)
+                int szd = dice() + dice();
+                if (ellenha1 + szd <= 100)
                 {
-                    player.eletero -= 2;
-                }  
-            }
+                    ellenha1 += szd;
+                }
+                if (player.eletero > 0 && ellenél1 > 0)
+                {
+                    if (player.ugyesseg > ellenha1)
+                    {
+                        ellenél1 -= 2;
+                    }
+                    else if (player.ugyesseg < ellenha1)
+                    {
+                        player.eletero -= 2;
+                    }
+                }
+                enemy_strenght_lbl.Text = $"{szornyek[ii].nev} harc erő: {ellenha1}";
+                enemy_healt_lbl.Text = $"{szornyek[ii].nev} élet erő: {ellenél1}";
+                health_lbl.Text = $"Élet erő: {player.eletero}";
+                strenght_lbl.Text = $"Harc erő: {player.ugyesseg}";
+                luck_lbl.Text = $"Szerencse: {player.szerencse}";
+                if (player.eletero <= 0)
+                {
+                    card_lbl.Text = "Meghaltál";
+                    start_btn.Text = "Új játék";
+                    start_btn.Visible = true;
+                    nextround_btn.Visible = false;
+                    ii = 0;
+                }
+                if (ellenél1 <= 0)
+                {
+                    continue_btn.Visible = true;
+                    nextround_btn.Visible = false;
+                    kartyak[kovetkezo_kartya].szorny = false;
+                    ii = 0;
+                }
+            }   
         }
     }
 }

@@ -156,10 +156,10 @@
             this.health_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.health_lbl.Location = new System.Drawing.Point(371, 10);
             this.health_lbl.Margin = new System.Windows.Forms.Padding(8, 4, 4, 4);
-            this.health_lbl.MaximumSize = new System.Drawing.Size(150, 24);
-            this.health_lbl.MinimumSize = new System.Drawing.Size(150, 24);
+            this.health_lbl.MaximumSize = new System.Drawing.Size(400, 24);
+            this.health_lbl.MinimumSize = new System.Drawing.Size(400, 24);
             this.health_lbl.Name = "health_lbl";
-            this.health_lbl.Size = new System.Drawing.Size(150, 24);
+            this.health_lbl.Size = new System.Drawing.Size(400, 24);
             this.health_lbl.TabIndex = 3;
             this.health_lbl.Text = "Élet erő: ";
             // 
@@ -169,10 +169,10 @@
             this.strenght_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.strenght_lbl.Location = new System.Drawing.Point(371, 41);
             this.strenght_lbl.Margin = new System.Windows.Forms.Padding(8, 4, 4, 4);
-            this.strenght_lbl.MaximumSize = new System.Drawing.Size(150, 24);
-            this.strenght_lbl.MinimumSize = new System.Drawing.Size(150, 24);
+            this.strenght_lbl.MaximumSize = new System.Drawing.Size(400, 24);
+            this.strenght_lbl.MinimumSize = new System.Drawing.Size(400, 24);
             this.strenght_lbl.Name = "strenght_lbl";
-            this.strenght_lbl.Size = new System.Drawing.Size(150, 24);
+            this.strenght_lbl.Size = new System.Drawing.Size(400, 24);
             this.strenght_lbl.TabIndex = 4;
             this.strenght_lbl.Text = "Harc erő:";
             // 
@@ -182,10 +182,10 @@
             this.luck_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.luck_lbl.Location = new System.Drawing.Point(371, 73);
             this.luck_lbl.Margin = new System.Windows.Forms.Padding(8, 4, 4, 4);
-            this.luck_lbl.MaximumSize = new System.Drawing.Size(150, 24);
-            this.luck_lbl.MinimumSize = new System.Drawing.Size(150, 24);
+            this.luck_lbl.MaximumSize = new System.Drawing.Size(400, 24);
+            this.luck_lbl.MinimumSize = new System.Drawing.Size(400, 24);
             this.luck_lbl.Name = "luck_lbl";
-            this.luck_lbl.Size = new System.Drawing.Size(150, 24);
+            this.luck_lbl.Size = new System.Drawing.Size(400, 24);
             this.luck_lbl.TabIndex = 5;
             this.luck_lbl.Text = "Szerencse:";
             // 
@@ -240,10 +240,10 @@
             this.enemy_strenght_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enemy_strenght_lbl.Location = new System.Drawing.Point(371, 137);
             this.enemy_strenght_lbl.Margin = new System.Windows.Forms.Padding(8, 4, 4, 4);
-            this.enemy_strenght_lbl.MaximumSize = new System.Drawing.Size(150, 24);
-            this.enemy_strenght_lbl.MinimumSize = new System.Drawing.Size(150, 24);
+            this.enemy_strenght_lbl.MaximumSize = new System.Drawing.Size(400, 24);
+            this.enemy_strenght_lbl.MinimumSize = new System.Drawing.Size(400, 24);
             this.enemy_strenght_lbl.Name = "enemy_strenght_lbl";
-            this.enemy_strenght_lbl.Size = new System.Drawing.Size(150, 24);
+            this.enemy_strenght_lbl.Size = new System.Drawing.Size(400, 24);
             this.enemy_strenght_lbl.TabIndex = 12;
             this.enemy_strenght_lbl.Text = "Harc erő:";
             // 
@@ -253,10 +253,10 @@
             this.enemy_healt_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enemy_healt_lbl.Location = new System.Drawing.Point(371, 105);
             this.enemy_healt_lbl.Margin = new System.Windows.Forms.Padding(8, 4, 4, 4);
-            this.enemy_healt_lbl.MaximumSize = new System.Drawing.Size(150, 24);
-            this.enemy_healt_lbl.MinimumSize = new System.Drawing.Size(150, 24);
+            this.enemy_healt_lbl.MaximumSize = new System.Drawing.Size(400, 24);
+            this.enemy_healt_lbl.MinimumSize = new System.Drawing.Size(400, 24);
             this.enemy_healt_lbl.Name = "enemy_healt_lbl";
-            this.enemy_healt_lbl.Size = new System.Drawing.Size(150, 24);
+            this.enemy_healt_lbl.Size = new System.Drawing.Size(400, 24);
             this.enemy_healt_lbl.TabIndex = 11;
             this.enemy_healt_lbl.Text = "Ellenfél élet erő: ";
             // 
@@ -275,7 +275,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 407);
+            this.ClientSize = new System.Drawing.Size(908, 407);
             this.ControlBox = false;
             this.Controls.Add(this.fight_btn);
             this.Controls.Add(this.enemy_strenght_lbl);
@@ -291,8 +291,8 @@
             this.Controls.Add(this.exit_btn);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximumSize = new System.Drawing.Size(724, 446);
-            this.MinimumSize = new System.Drawing.Size(724, 446);
+            this.MaximumSize = new System.Drawing.Size(924, 446);
+            this.MinimumSize = new System.Drawing.Size(924, 446);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
