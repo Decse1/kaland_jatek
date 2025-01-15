@@ -22,7 +22,7 @@ namespace kaland_jatek_form
             public int arany = 0;
             public int etel = 0;
             public int ekkovek = 0;
-            public List<string> felszereles = new List<string> { "Kard", "Borvert" };
+            public string[] felszereles = new string[] { "Kard", "Borvert", "", "", "", "", "", "", };
             public string[] italok = new string[2];
 
 
@@ -196,6 +196,7 @@ namespace kaland_jatek_form
             fight_btn.Visible = false;
             nextround_btn.Visible = false;
             useluck_cb.Visible = false;
+            sname_label.Visible = false;
 
             #region inventory
             int iosdb = 0;
@@ -204,13 +205,15 @@ namespace kaland_jatek_form
             {
                 inventory[i] = new PictureBox();
                 inventory[i].Size = new Size(100,100);
+                //inventory[i].BackColor = Color.Wheat;
                 if(i % 2 == 0)
                 {
                     inventory[i].Location = new Point(1116, iosdb * 100 + 6);
+
                 }
                 else
                 {
-                    inventory[i].Location = new Point(1116, ilandb * 100 + 6);
+                    inventory[i].Location = new Point(1010, ilandb * 100 + 6);
                 }
                 
             }
@@ -221,6 +224,14 @@ namespace kaland_jatek_form
 
         private void start_btn_Click(object sender, EventArgs e)
         {
+
+            ph_pb.Visible = true;
+            phl_pb.Visible = true;
+            ps_pb.Visible = true;
+            psl_pb.Visible = true;
+            pl_pb.Visible = true;
+            pll_pb.Visible = true;
+
             kovetkezo_kartya = 0;
             start_ugyesseg = 0;
             start_eletero = 0;
@@ -253,7 +264,13 @@ namespace kaland_jatek_form
             card_lbl.Text = kartyak[kovetkezo_kartya].szoveg;
             kovetkezo_kartya = kartyak[0].kovetkezo - 1;
             continue_btn.Visible = true;            
-
+            for(int i = 0; i < 8; i++)
+            {
+                if (player.felszereles[i] != "")
+                {
+                    inventory[i].Image = Image.FromFile();
+                }
+            }
         }
 
         private void continue_btn_Click(object sender, EventArgs e)
@@ -392,12 +409,23 @@ namespace kaland_jatek_form
 
         private void fight_btn_Click(object sender, EventArgs e)
         {
+            sname_label.Visible = true;
             fight_btn.Visible = false;
             nextround_btn.Visible = true;
+            sname_label.Visible = true;
+            sh_pb.Visible = true;
+            shl_pb.Visible = true;
+            ss_pb.Visible = true;
+            ssl_pb.Visible = true;
+            useluck_cb.Visible = true;
+            
             while (ii < szornyek.Count && szornyek[ii].kartya - 1 != kovetkezo_kartya)
             {
                 ii++;
             }
+
+            shl_pb.Image = Image.FromFile($"healthbar\\h{szornyek[ii].eletero}.png");
+            ssl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)szornyek[ii].ugyesseg / 2)}.png");
             //csata(kovetkezo_kartya);
         }
         public int ellenél1 = 0;
@@ -407,15 +435,6 @@ namespace kaland_jatek_form
         public int korokdb = 0;
         private void nextround_btn_Click(object sender, EventArgs e)
         {
-            sname_label.Visible = true ;
-            sh_pb.Visible = true;
-            shl_pb.Visible = true;
-            ss_pb.Visible = true;
-            ssl_pb.Visible = true;
-            useluck_cb.Visible = true;
-            
-
-
             if (szornyek[ii + 1].kartya - 1 == kovetkezo_kartya && szornydb == 0)
             {
                 szornydb = 2;
@@ -433,9 +452,23 @@ namespace kaland_jatek_form
                             ellenha1 = szornyek[ii].ugyesseg;
                         }
                         sname_label.Text = $"{szornyek[ii].nev}";
-                        shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél1}.png");
+                        if (ellenél1 <= 0)
+                        {
+                            shl_pb.Image = Image.FromFile($"healthbar\\h0.png");
+                        }
+                        else
+                        {
+                            shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél1}.png");
+                        }
+                        if (player.eletero <= 0)
+                        {
+                            shl_pb.Image = Image.FromFile($"healthbar\\h0.png");
+                        }
+                        else
+                        {
+                            shl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
+                        }
                         ssl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)ellenha1 / 2)}.png");
-                        phl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
                         psl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)player.ugyesseg / 2)}.png");
                         pll_pb.Image = Image.FromFile($"luckbar\\l{player.szerencse}.png");
 
@@ -464,9 +497,23 @@ namespace kaland_jatek_form
                             korokdb++;
                         }
                         sname_label.Text = $"{szornyek[ii].nev}";
-                        shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél1}.png");
+                        if (ellenél1 <= 0)
+                        {
+                            shl_pb.Image = Image.FromFile($"healthbar\\h0.png");
+                        }
+                        else
+                        {
+                            shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél1}.png");
+                        }
+                        if (player.eletero <= 0)
+                        {
+                            shl_pb.Image = Image.FromFile($"healthbar\\h0.png");
+                        }
+                        else
+                        {
+                            shl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
+                        }
                         ssl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)ellenha1 / 2)}.png");
-                        phl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
                         psl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)player.ugyesseg / 2)}.png");
                         pll_pb.Image = Image.FromFile($"luckbar\\l{player.szerencse}.png");
                     }
@@ -478,9 +525,23 @@ namespace kaland_jatek_form
                             ellenha2 = szornyek[ii+1].ugyesseg;
                         }
                         sname_label.Text = $"{szornyek[ii+1].nev}";
-                        shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél2}.png");
+                        if (ellenél1 <= 0)
+                        {
+                            shl_pb.Image = Image.FromFile($"healthbar\\h0.png");
+                        }
+                        else
+                        {
+                            shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél2}.png");
+                        }
+                        if (player.eletero <= 0)
+                        {
+                            shl_pb.Image = Image.FromFile($"healthbar\\h0.png");
+                        }
+                        else
+                        {
+                            shl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
+                        }
                         ssl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)ellenha2 / 2)}.png");
-                        phl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
                         psl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)player.ugyesseg / 2)}.png");
                         pll_pb.Image = Image.FromFile($"luckbar\\l{player.szerencse}.png");
 
@@ -507,9 +568,23 @@ namespace kaland_jatek_form
                             }
                         }
                         sname_label.Text = $"{szornyek[ii+1].nev}";
-                        shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél2}.png");
+                        if (ellenél2 <= 0)
+                        {
+                            shl_pb.Image = Image.FromFile($"healthbar\\h0.png");
+                        }
+                        else
+                        {
+                            shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél2}.png");
+                        }
+                        if (player.eletero <= 0)
+                        {
+                            shl_pb.Image = Image.FromFile($"healthbar\\h0.png");
+                        }
+                        else
+                        {
+                            shl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
+                        }
                         ssl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)ellenha2 / 2)}.png");
-                        phl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
                         psl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)player.ugyesseg / 2)}.png");
                         pll_pb.Image = Image.FromFile($"luckbar\\l{player.szerencse}.png"); ;
                     }
@@ -550,10 +625,24 @@ namespace kaland_jatek_form
                     ellenél1 = szornyek[ii].eletero;
                     ellenha1 = szornyek[ii].ugyesseg;
                 }
-                sname_label.Text = $"{szornyek[ii].nev}";
-                shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél1}.png");
+                if (ellenél1 <= 0)
+                {
+                    shl_pb.Image = Image.FromFile($"healthbar\\h0.png");
+                }
+                else
+                {
+                    shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél1}.png");
+                }
+                if (player.eletero <= 0)
+                {
+                    shl_pb.Image = Image.FromFile($"healthbar\\h0.png");
+                }
+                else
+                {
+                    shl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
+                }
+                sname_label.Text = $"{szornyek[ii].nev}";);
                 ssl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)ellenha1 / 2)}.png");
-                phl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
                 psl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)player.ugyesseg / 2)}.png");
                 pll_pb.Image = Image.FromFile($"luckbar\\l{player.szerencse}.png");
 
@@ -607,9 +696,23 @@ namespace kaland_jatek_form
                     korokdb++;
                 }
                 sname_label.Text = $"{szornyek[ii].nev}";
-                shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél1}.png");
-                ssl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)ellenha1/2)}.png");
-                phl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
+                if(ellenél1 <= 0)
+                {
+                    shl_pb.Image = Image.FromFile($"healthbar\\h0.png");
+                }
+                else
+                {
+                   shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél1}.png");
+                } 
+                if (player.eletero <= 0)
+                {
+                    shl_pb.Image = Image.FromFile($"healthbar\\h0.png");
+                }
+                else
+                {
+                    shl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
+                }
+                ssl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)ellenha1 / 2)}.png");
                 psl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)player.ugyesseg / 2)}.png");
                 pll_pb.Image = Image.FromFile($"luckbar\\l{player.szerencse}.png");
                 if (korokdb == 1)
