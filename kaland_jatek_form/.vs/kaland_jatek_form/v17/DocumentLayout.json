@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\palle\\Documents\\GitHub\\kaland_jatek\\kaland_jatek_form\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0BE174AD-7F30-4244-A398-26137A26022E}|kaland_jatek_form.csproj|C:\\Users\\palle\\Documents\\GitHub\\kaland_jatek\\kaland_jatek_form\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{0BE174AD-7F30-4244-A398-26137A26022E}|kaland_jatek_form.csproj|C:\\Users\\palle\\Documents\\GitHub\\kaland_jatek\\kaland_jatek_form\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BE174AD-7F30-4244-A398-26137A26022E}|kaland_jatek_form.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BE174AD-7F30-4244-A398-26137A26022E}|kaland_jatek_form.csproj|c:\\users\\palle\\documents\\github\\kaland_jatek\\kaland_jatek_form\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{0BE174AD-7F30-4244-A398-26137A26022E}|kaland_jatek_form.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|kaland_jatek_form||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BE174AD-7F30-4244-A398-26137A26022E}|kaland_jatek_form.csproj|c:\\users\\palle\\documents\\github\\kaland_jatek\\kaland_jatek_form\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BE174AD-7F30-4244-A398-26137A26022E}|kaland_jatek_form.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0BE174AD-7F30-4244-A398-26137A26022E}|kaland_jatek_form.csproj|c:\\users\\palle\\documents\\github\\kaland_jatek\\kaland_jatek_form\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
@@ -24,7 +24,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -36,32 +36,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\palle\\Documents\\GitHub\\kaland_jatek\\kaland_jatek_form\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\palle\\Documents\\GitHub\\kaland_jatek\\kaland_jatek_form\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABgAAABPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T13:54:29.985Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "kaland_jatek_form",
-              "DocumentMoniker": "C:\\Users\\palle\\Documents\\GitHub\\kaland_jatek\\kaland_jatek_form\\kaland_jatek_form.csproj",
-              "RelativeDocumentMoniker": "kaland_jatek_form.csproj",
-              "ToolTip": "C:\\Users\\palle\\Documents\\GitHub\\kaland_jatek\\kaland_jatek_form\\kaland_jatek_form.csproj",
-              "RelativeToolTip": "kaland_jatek_form.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-27T07:19:03.426Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\palle\\Documents\\GitHub\\kaland_jatek\\kaland_jatek_form\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
@@ -70,6 +45,31 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-24T12:30:15.341Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\palle\\Documents\\GitHub\\kaland_jatek\\kaland_jatek_form\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\palle\\Documents\\GitHub\\kaland_jatek\\kaland_jatek_form\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAQwEQCAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T13:54:29.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "kaland_jatek_form",
+              "DocumentMoniker": "C:\\Users\\palle\\Documents\\GitHub\\kaland_jatek\\kaland_jatek_form\\kaland_jatek_form.csproj",
+              "RelativeDocumentMoniker": "kaland_jatek_form.csproj",
+              "ToolTip": "C:\\Users\\palle\\Documents\\GitHub\\kaland_jatek\\kaland_jatek_form\\kaland_jatek_form.csproj",
+              "RelativeToolTip": "kaland_jatek_form.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-27T07:19:03.426Z",
+              "EditorCaption": ""
             }
           ]
         }

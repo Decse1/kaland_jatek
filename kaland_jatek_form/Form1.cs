@@ -181,9 +181,10 @@ namespace kaland_jatek_form
 
             continue_btn.Visible = false;
 
-            enemy_healt_lbl.Visible = false;
-            enemy_strenght_lbl.Visible = false;
-            prepare_lbl.Visible = false;
+            sh_pb.Visible = false;
+            shl_pb.Visible = false;
+            ss_pb.Visible = false;
+            ssl_pb.Visible = false;
             fight_btn.Visible = false;
             nextround_btn.Visible = false;
             useluck_cb.Visible = false;
@@ -218,9 +219,9 @@ namespace kaland_jatek_form
             player.arany = start_arany;
             player.etel = start_etel;
 
-            health_lbl.Text = $"Élet erő: {player.eletero}";
-            strenght_lbl.Text = $"Harc erő: {player.ugyesseg}";
-            luck_lbl.Text = $"Szerencse: {player.szerencse}";
+            phl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
+            psl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)player.ugyesseg / 2)}.png");
+            pll_pb.Image = Image.FromFile($"luckbar\\l{player.szerencse}.png");
             card_lbl.Text = kartyak[kovetkezo_kartya].szoveg;
             kovetkezo_kartya = kartyak[0].kovetkezo - 1;
             continue_btn.Visible = true;            
@@ -230,8 +231,11 @@ namespace kaland_jatek_form
         private void continue_btn_Click(object sender, EventArgs e)
         {
             korokdb = 0;
-            enemy_healt_lbl.Visible = false;
-            enemy_strenght_lbl.Visible = false;
+            sname_label.Visible = false;
+            sh_pb.Visible = false;
+            shl_pb.Visible = false;
+            ss_pb.Visible = false;
+            ssl_pb.Visible = false;
             if (!kartyak[kovetkezo_kartya].szorny)
             {
                 if (kartyak[kovetkezo_kartya].kovetkezo < 201)
@@ -375,9 +379,11 @@ namespace kaland_jatek_form
         public int korokdb = 0;
         private void nextround_btn_Click(object sender, EventArgs e)
         {
-            
-            enemy_strenght_lbl.Visible = true;
-            enemy_healt_lbl.Visible = true;
+            sname_label.Visible = true ;
+            sh_pb.Visible = true;
+            shl_pb.Visible = true;
+            ss_pb.Visible = true;
+            ssl_pb.Visible = true;
             useluck_cb.Visible = true;
             
 
@@ -398,11 +404,13 @@ namespace kaland_jatek_form
                             ellenél1 = szornyek[ii].eletero;
                             ellenha1 = szornyek[ii].ugyesseg;
                         }
-                        enemy_strenght_lbl.Text = $"{szornyek[ii].nev} harc erő: {ellenha1}";
-                        enemy_healt_lbl.Text = $"{szornyek[ii].nev} élet erő: {ellenél1}";
-                        health_lbl.Text = $"Élet erő: {player.eletero}";
-                        strenght_lbl.Text = $"Harc erő: {player.ugyesseg}";
-                        luck_lbl.Text = $"Szerencse: {player.szerencse}";
+                        sname_label.Text = $"{szornyek[ii].nev}";
+                        shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél1}.png");
+                        ssl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)ellenha1 / 2)}.png");
+                        phl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
+                        psl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)player.ugyesseg / 2)}.png");
+                        pll_pb.Image = Image.FromFile($"luckbar\\l{player.szerencse}.png");
+
 
 
                         int pd = dice() + dice();
@@ -427,11 +435,12 @@ namespace kaland_jatek_form
                             }
                             korokdb++;
                         }
-                        enemy_strenght_lbl.Text = $"{szornyek[ii].nev} harc erő: {ellenha1}";
-                        enemy_healt_lbl.Text = $"{szornyek[ii].nev} élet erő: {ellenél1}";
-                        health_lbl.Text = $"Élet erő: {player.eletero}";
-                        strenght_lbl.Text = $"Harc erő: {player.ugyesseg}";
-                        luck_lbl.Text = $"Szerencse: {player.szerencse}";
+                        sname_label.Text = $"{szornyek[ii].nev}";
+                        shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél1}.png");
+                        ssl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)ellenha1 / 2)}.png");
+                        phl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
+                        psl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)player.ugyesseg / 2)}.png");
+                        pll_pb.Image = Image.FromFile($"luckbar\\l{player.szerencse}.png");
                     }
                     else
                     {
@@ -440,11 +449,12 @@ namespace kaland_jatek_form
                             ellenél2 = szornyek[ii+1].eletero;
                             ellenha2 = szornyek[ii+1].ugyesseg;
                         }
-                        enemy_strenght_lbl.Text = $"{szornyek[ii+1].nev} harc erő: {ellenha2}";
-                        enemy_healt_lbl.Text = $"{szornyek[ii+1].nev} élet erő: {ellenél2}";
-                        health_lbl.Text = $"Élet erő: {player.eletero}";
-                        strenght_lbl.Text = $"Harc erő: {player.ugyesseg}";
-                        luck_lbl.Text = $"Szerencse: {player.szerencse}";
+                        sname_label.Text = $"{szornyek[ii+1].nev}";
+                        shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél2}.png");
+                        ssl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)ellenha2 / 2)}.png");
+                        phl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
+                        psl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)player.ugyesseg / 2)}.png");
+                        pll_pb.Image = Image.FromFile($"luckbar\\l{player.szerencse}.png");
 
 
                         int pd = dice() + dice();
@@ -468,11 +478,12 @@ namespace kaland_jatek_form
                                 player.eletero -= 2;
                             }
                         }
-                        enemy_strenght_lbl.Text = $"{szornyek[ii+1].nev} harc erő: {ellenha2}";
-                        enemy_healt_lbl.Text = $"{szornyek[ii+1].nev} élet erő: {ellenél2}";
-                        health_lbl.Text = $"Élet erő: {player.eletero}";
-                        strenght_lbl.Text = $"Harc erő: {player.ugyesseg}";
-                        luck_lbl.Text = $"Szerencse: {player.szerencse}";
+                        sname_label.Text = $"{szornyek[ii+1].nev}";
+                        shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél2}.png");
+                        ssl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)ellenha2 / 2)}.png");
+                        phl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
+                        psl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)player.ugyesseg / 2)}.png");
+                        pll_pb.Image = Image.FromFile($"luckbar\\l{player.szerencse}.png"); ;
                     }
                     if (korokdb == 1)
                     {
@@ -511,13 +522,14 @@ namespace kaland_jatek_form
                     ellenél1 = szornyek[ii].eletero;
                     ellenha1 = szornyek[ii].ugyesseg;
                 }
-                enemy_strenght_lbl.Text = $"{szornyek[ii].nev} harc erő: {ellenha1}";
-                enemy_healt_lbl.Text = $"{szornyek[ii].nev} élet erő: {ellenél1}";
-                health_lbl.Text = $"Élet erő: {player.eletero}";
-                strenght_lbl.Text = $"Harc erő: {player.ugyesseg}";
-                luck_lbl.Text = $"Szerencse: {player.szerencse}";
+                sname_label.Text = $"{szornyek[ii].nev}";
+                shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél1}.png");
+                ssl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)ellenha1 / 2)}.png");
+                phl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
+                psl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)player.ugyesseg / 2)}.png");
+                pll_pb.Image = Image.FromFile($"luckbar\\l{player.szerencse}.png");
 
-                
+
 
                 int pd = dice() + dice();
                 if (player.ugyesseg + pd <= 100)
@@ -566,12 +578,13 @@ namespace kaland_jatek_form
                     }
                     korokdb++;
                 }
-                enemy_strenght_lbl.Text = $"{szornyek[ii].nev} harc erő: {ellenha1}";
-                enemy_healt_lbl.Text = $"{szornyek[ii].nev} élet erő: {ellenél1}";
-                health_lbl.Text = $"Élet erő: {player.eletero}";
-                strenght_lbl.Text = $"Harc erő: {player.ugyesseg}";
-                luck_lbl.Text = $"Szerencse: {player.szerencse}";
-                if(korokdb == 1)
+                sname_label.Text = $"{szornyek[ii].nev}";
+                shl_pb.Image = Image.FromFile($"healthbar\\h{ellenél1}.png");
+                ssl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)ellenha1/2)}.png");
+                phl_pb.Image = Image.FromFile($"healthbar\\h{player.eletero}.png");
+                psl_pb.Image = Image.FromFile($"powerbar\\p{(int)Math.Round((double)player.ugyesseg / 2)}.png");
+                pll_pb.Image = Image.FromFile($"luckbar\\l{player.szerencse}.png");
+                if (korokdb == 1)
                 {
                     continue_btn.Visible = true;
                 }

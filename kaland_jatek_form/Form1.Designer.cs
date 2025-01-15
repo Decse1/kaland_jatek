@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.option4_rbtn = new System.Windows.Forms.RadioButton();
             this.option3_rbtn = new System.Windows.Forms.RadioButton();
@@ -37,21 +38,32 @@
             this.exit_btn = new System.Windows.Forms.Button();
             this.start_btn = new System.Windows.Forms.Button();
             this.health_lbl = new System.Windows.Forms.Label();
-            this.strenght_lbl = new System.Windows.Forms.Label();
-            this.luck_lbl = new System.Windows.Forms.Label();
+            this.sname_label = new System.Windows.Forms.Label();
             this.continue_btn = new System.Windows.Forms.Button();
             this.nextround_btn = new System.Windows.Forms.Button();
             this.useluck_cb = new System.Windows.Forms.CheckBox();
-            this.enemy_strenght_lbl = new System.Windows.Forms.Label();
-            this.enemy_healt_lbl = new System.Windows.Forms.Label();
             this.fight_btn = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.phl_pb = new System.Windows.Forms.PictureBox();
+            this.ps_pb = new System.Windows.Forms.PictureBox();
+            this.pl_pb = new System.Windows.Forms.PictureBox();
+            this.ph_pb = new System.Windows.Forms.PictureBox();
+            this.psl_pb = new System.Windows.Forms.PictureBox();
+            this.pll_pb = new System.Windows.Forms.PictureBox();
+            this.ssl_pb = new System.Windows.Forms.PictureBox();
+            this.shl_pb = new System.Windows.Forms.PictureBox();
+            this.ss_pb = new System.Windows.Forms.PictureBox();
+            this.sh_pb = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phl_pb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ps_pb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pl_pb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ph_pb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.psl_pb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pll_pb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ssl_pb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shl_pb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ss_pb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sh_pb)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -126,7 +138,7 @@
             this.card_lbl.BackColor = System.Drawing.SystemColors.Control;
             this.card_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.card_lbl.Location = new System.Drawing.Point(15, 15);
-            this.card_lbl.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
+            this.card_lbl.Margin = new System.Windows.Forms.Padding(15);
             this.card_lbl.MaximumSize = new System.Drawing.Size(440, 0);
             this.card_lbl.MinimumSize = new System.Drawing.Size(440, 418);
             this.card_lbl.Name = "card_lbl";
@@ -159,41 +171,28 @@
             // 
             this.health_lbl.AutoSize = true;
             this.health_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.health_lbl.Location = new System.Drawing.Point(495, 14);
+            this.health_lbl.Location = new System.Drawing.Point(495, 12);
             this.health_lbl.Margin = new System.Windows.Forms.Padding(11, 5, 5, 5);
-            this.health_lbl.MaximumSize = new System.Drawing.Size(533, 30);
-            this.health_lbl.MinimumSize = new System.Drawing.Size(533, 30);
+            this.health_lbl.MaximumSize = new System.Drawing.Size(100, 30);
+            this.health_lbl.MinimumSize = new System.Drawing.Size(100, 30);
             this.health_lbl.Name = "health_lbl";
-            this.health_lbl.Size = new System.Drawing.Size(533, 30);
+            this.health_lbl.Size = new System.Drawing.Size(100, 30);
             this.health_lbl.TabIndex = 3;
             this.health_lbl.Text = "Játékos";
             this.health_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // strenght_lbl
+            // sname_label
             // 
-            this.strenght_lbl.AutoSize = true;
-            this.strenght_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.strenght_lbl.Location = new System.Drawing.Point(899, 253);
-            this.strenght_lbl.Margin = new System.Windows.Forms.Padding(11, 5, 5, 5);
-            this.strenght_lbl.MaximumSize = new System.Drawing.Size(533, 30);
-            this.strenght_lbl.MinimumSize = new System.Drawing.Size(533, 30);
-            this.strenght_lbl.Name = "strenght_lbl";
-            this.strenght_lbl.Size = new System.Drawing.Size(533, 30);
-            this.strenght_lbl.TabIndex = 4;
-            this.strenght_lbl.Text = "Harc erő:";
-            // 
-            // luck_lbl
-            // 
-            this.luck_lbl.AutoSize = true;
-            this.luck_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.luck_lbl.Location = new System.Drawing.Point(899, 293);
-            this.luck_lbl.Margin = new System.Windows.Forms.Padding(11, 5, 5, 5);
-            this.luck_lbl.MaximumSize = new System.Drawing.Size(533, 30);
-            this.luck_lbl.MinimumSize = new System.Drawing.Size(533, 30);
-            this.luck_lbl.Name = "luck_lbl";
-            this.luck_lbl.Size = new System.Drawing.Size(533, 30);
-            this.luck_lbl.TabIndex = 5;
-            this.luck_lbl.Text = "Szerencse:";
+            this.sname_label.AutoSize = true;
+            this.sname_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sname_label.Location = new System.Drawing.Point(811, 12);
+            this.sname_label.Margin = new System.Windows.Forms.Padding(11, 5, 5, 5);
+            this.sname_label.MaximumSize = new System.Drawing.Size(200, 30);
+            this.sname_label.MinimumSize = new System.Drawing.Size(200, 30);
+            this.sname_label.Name = "sname_label";
+            this.sname_label.Size = new System.Drawing.Size(200, 30);
+            this.sname_label.TabIndex = 4;
+            this.sname_label.Text = "Ellenfél";
             // 
             // continue_btn
             // 
@@ -221,38 +220,12 @@
             // 
             this.useluck_cb.AutoSize = true;
             this.useluck_cb.Location = new System.Drawing.Point(605, 364);
-            this.useluck_cb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.useluck_cb.Margin = new System.Windows.Forms.Padding(4);
             this.useluck_cb.Name = "useluck_cb";
             this.useluck_cb.Size = new System.Drawing.Size(159, 20);
             this.useluck_cb.TabIndex = 9;
             this.useluck_cb.Text = "szerencse használata";
             this.useluck_cb.UseVisualStyleBackColor = true;
-            // 
-            // enemy_strenght_lbl
-            // 
-            this.enemy_strenght_lbl.AutoSize = true;
-            this.enemy_strenght_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enemy_strenght_lbl.Location = new System.Drawing.Point(899, 372);
-            this.enemy_strenght_lbl.Margin = new System.Windows.Forms.Padding(11, 5, 5, 5);
-            this.enemy_strenght_lbl.MaximumSize = new System.Drawing.Size(533, 30);
-            this.enemy_strenght_lbl.MinimumSize = new System.Drawing.Size(533, 30);
-            this.enemy_strenght_lbl.Name = "enemy_strenght_lbl";
-            this.enemy_strenght_lbl.Size = new System.Drawing.Size(533, 30);
-            this.enemy_strenght_lbl.TabIndex = 12;
-            this.enemy_strenght_lbl.Text = "Harc erő:";
-            // 
-            // enemy_healt_lbl
-            // 
-            this.enemy_healt_lbl.AutoSize = true;
-            this.enemy_healt_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enemy_healt_lbl.Location = new System.Drawing.Point(899, 332);
-            this.enemy_healt_lbl.Margin = new System.Windows.Forms.Padding(11, 5, 5, 5);
-            this.enemy_healt_lbl.MaximumSize = new System.Drawing.Size(533, 30);
-            this.enemy_healt_lbl.MinimumSize = new System.Drawing.Size(533, 30);
-            this.enemy_healt_lbl.Name = "enemy_healt_lbl";
-            this.enemy_healt_lbl.Size = new System.Drawing.Size(533, 30);
-            this.enemy_healt_lbl.TabIndex = 11;
-            this.enemy_healt_lbl.Text = "Ellenfél élet erő: ";
             // 
             // fight_btn
             // 
@@ -265,32 +238,95 @@
             this.fight_btn.UseVisualStyleBackColor = true;
             this.fight_btn.Click += new System.EventHandler(this.fight_btn_Click);
             // 
-            // pictureBox3
+            // phl_pb
             // 
-            this.pictureBox3.Image = global::kaland_jatek_form.Properties.Resources.Sword;
-            this.pictureBox3.Location = new System.Drawing.Point(500, 124);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(61, 68);
-            this.pictureBox3.TabIndex = 16;
-            this.pictureBox3.TabStop = false;
+            this.phl_pb.Image = global::kaland_jatek_form.Properties.Resources.h16;
+            this.phl_pb.Location = new System.Drawing.Point(500, 132);
+            this.phl_pb.Name = "phl_pb";
+            this.phl_pb.Size = new System.Drawing.Size(61, 11);
+            this.phl_pb.TabIndex = 17;
+            this.phl_pb.TabStop = false;
             // 
-            // pictureBox2
+            // ps_pb
             // 
-            this.pictureBox2.Image = global::kaland_jatek_form.Properties.Resources.Clover;
-            this.pictureBox2.Location = new System.Drawing.Point(500, 198);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(61, 68);
-            this.pictureBox2.TabIndex = 15;
-            this.pictureBox2.TabStop = false;
+            this.ps_pb.Image = global::kaland_jatek_form.Properties.Resources.Sword;
+            this.ps_pb.Location = new System.Drawing.Point(500, 149);
+            this.ps_pb.Name = "ps_pb";
+            this.ps_pb.Size = new System.Drawing.Size(80, 80);
+            this.ps_pb.TabIndex = 16;
+            this.ps_pb.TabStop = false;
             // 
-            // pictureBox1
+            // pl_pb
             // 
-            this.pictureBox1.Image = global::kaland_jatek_form.Properties.Resources.Heart;
-            this.pictureBox1.Location = new System.Drawing.Point(500, 61);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(61, 57);
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
+            this.pl_pb.Image = global::kaland_jatek_form.Properties.Resources.Clover;
+            this.pl_pb.Location = new System.Drawing.Point(500, 252);
+            this.pl_pb.Name = "pl_pb";
+            this.pl_pb.Size = new System.Drawing.Size(80, 80);
+            this.pl_pb.TabIndex = 15;
+            this.pl_pb.TabStop = false;
+            // 
+            // ph_pb
+            // 
+            this.ph_pb.Image = ((System.Drawing.Image)(resources.GetObject("ph_pb.Image")));
+            this.ph_pb.Location = new System.Drawing.Point(500, 50);
+            this.ph_pb.Name = "ph_pb";
+            this.ph_pb.Size = new System.Drawing.Size(80, 80);
+            this.ph_pb.TabIndex = 14;
+            this.ph_pb.TabStop = false;
+            // 
+            // psl_pb
+            // 
+            this.psl_pb.Image = global::kaland_jatek_form.Properties.Resources.h16;
+            this.psl_pb.Location = new System.Drawing.Point(500, 235);
+            this.psl_pb.Name = "psl_pb";
+            this.psl_pb.Size = new System.Drawing.Size(61, 11);
+            this.psl_pb.TabIndex = 18;
+            this.psl_pb.TabStop = false;
+            // 
+            // pll_pb
+            // 
+            this.pll_pb.Image = global::kaland_jatek_form.Properties.Resources.h16;
+            this.pll_pb.Location = new System.Drawing.Point(500, 338);
+            this.pll_pb.Name = "pll_pb";
+            this.pll_pb.Size = new System.Drawing.Size(61, 11);
+            this.pll_pb.TabIndex = 19;
+            this.pll_pb.TabStop = false;
+            // 
+            // ssl_pb
+            // 
+            this.ssl_pb.Image = global::kaland_jatek_form.Properties.Resources.h16;
+            this.ssl_pb.Location = new System.Drawing.Point(816, 235);
+            this.ssl_pb.Name = "ssl_pb";
+            this.ssl_pb.Size = new System.Drawing.Size(61, 11);
+            this.ssl_pb.TabIndex = 24;
+            this.ssl_pb.TabStop = false;
+            // 
+            // shl_pb
+            // 
+            this.shl_pb.Image = global::kaland_jatek_form.Properties.Resources.h16;
+            this.shl_pb.Location = new System.Drawing.Point(816, 132);
+            this.shl_pb.Name = "shl_pb";
+            this.shl_pb.Size = new System.Drawing.Size(61, 11);
+            this.shl_pb.TabIndex = 23;
+            this.shl_pb.TabStop = false;
+            // 
+            // ss_pb
+            // 
+            this.ss_pb.Image = global::kaland_jatek_form.Properties.Resources.Sword;
+            this.ss_pb.Location = new System.Drawing.Point(816, 149);
+            this.ss_pb.Name = "ss_pb";
+            this.ss_pb.Size = new System.Drawing.Size(80, 80);
+            this.ss_pb.TabIndex = 22;
+            this.ss_pb.TabStop = false;
+            // 
+            // sh_pb
+            // 
+            this.sh_pb.Image = global::kaland_jatek_form.Properties.Resources.Heart;
+            this.sh_pb.Location = new System.Drawing.Point(816, 50);
+            this.sh_pb.Name = "sh_pb";
+            this.sh_pb.Size = new System.Drawing.Size(80, 80);
+            this.sh_pb.TabIndex = 20;
+            this.sh_pb.TabStop = false;
             // 
             // Form1
             // 
@@ -298,17 +334,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1208, 491);
             this.ControlBox = false;
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.ssl_pb);
+            this.Controls.Add(this.shl_pb);
+            this.Controls.Add(this.ss_pb);
+            this.Controls.Add(this.sh_pb);
+            this.Controls.Add(this.pll_pb);
+            this.Controls.Add(this.psl_pb);
+            this.Controls.Add(this.phl_pb);
+            this.Controls.Add(this.ps_pb);
+            this.Controls.Add(this.pl_pb);
+            this.Controls.Add(this.ph_pb);
             this.Controls.Add(this.fight_btn);
-            this.Controls.Add(this.enemy_strenght_lbl);
-            this.Controls.Add(this.enemy_healt_lbl);
             this.Controls.Add(this.useluck_cb);
             this.Controls.Add(this.nextround_btn);
             this.Controls.Add(this.continue_btn);
-            this.Controls.Add(this.luck_lbl);
-            this.Controls.Add(this.strenght_lbl);
+            this.Controls.Add(this.sname_label);
             this.Controls.Add(this.health_lbl);
             this.Controls.Add(this.start_btn);
             this.Controls.Add(this.exit_btn);
@@ -321,9 +361,16 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phl_pb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ps_pb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pl_pb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ph_pb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.psl_pb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pll_pb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ssl_pb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shl_pb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ss_pb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sh_pb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,8 +383,7 @@
         private System.Windows.Forms.Button exit_btn;
         private System.Windows.Forms.Button start_btn;
         private System.Windows.Forms.Label health_lbl;
-        private System.Windows.Forms.Label strenght_lbl;
-        private System.Windows.Forms.Label luck_lbl;
+        private System.Windows.Forms.Label sname_label;
         private System.Windows.Forms.RadioButton option4_rbtn;
         private System.Windows.Forms.RadioButton option3_rbtn;
         private System.Windows.Forms.RadioButton option2_rbtn;
@@ -345,12 +391,17 @@
         private System.Windows.Forms.Button continue_btn;
         private System.Windows.Forms.Button nextround_btn;
         private System.Windows.Forms.CheckBox useluck_cb;
-        private System.Windows.Forms.Label enemy_strenght_lbl;
-        private System.Windows.Forms.Label enemy_healt_lbl;
         private System.Windows.Forms.Button fight_btn;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox ph_pb;
+        private System.Windows.Forms.PictureBox pl_pb;
+        private System.Windows.Forms.PictureBox ps_pb;
+        private System.Windows.Forms.PictureBox phl_pb;
+        private System.Windows.Forms.PictureBox psl_pb;
+        private System.Windows.Forms.PictureBox pll_pb;
+        private System.Windows.Forms.PictureBox ssl_pb;
+        private System.Windows.Forms.PictureBox shl_pb;
+        private System.Windows.Forms.PictureBox ss_pb;
+        private System.Windows.Forms.PictureBox sh_pb;
     }
 }
 

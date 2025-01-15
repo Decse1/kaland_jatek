@@ -7,7 +7,7 @@
     <ProjectGuid>{0BE174AD-7F30-4244-A398-26137A26022E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>kaland_jatek_form</RootNamespace>
-    <AssemblyName>kaland_jatek_form</AssemblyName>
+    <AssemblyName>p</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -88,6 +88,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\labirintus_kepek\Sword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\healthbar\h0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\healthbar\h16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
