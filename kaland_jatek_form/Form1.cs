@@ -22,7 +22,7 @@ namespace kaland_jatek_form
             public int arany = 0;
             public int etel = 0;
             public int ekkovek = 0;
-            public List<string> felszereles = new List<string> { "Kard", "Bőrvért" };
+            public List<string> felszereles = new List<string> { "Kard", "Borvert" };
             public string[] italok = new string[2];
 
 
@@ -229,6 +229,7 @@ namespace kaland_jatek_form
 
         private void continue_btn_Click(object sender, EventArgs e)
         {
+            korokdb = 0;
             enemy_healt_lbl.Visible = false;
             enemy_strenght_lbl.Visible = false;
             if (!kartyak[kovetkezo_kartya].szorny)
@@ -367,15 +368,17 @@ namespace kaland_jatek_form
             }
             //csata(kovetkezo_kartya);
         }
-       
+        public int ellenél1 = 0;
+        public int ellenha1 = 0;
+        public int ellenha2 = 0;
+        public int ellenél2 = 0;
+        public int korokdb = 0;
         private void nextround_btn_Click(object sender, EventArgs e)
         {
-            int ellenél1 = 0;
-            int ellenha1 = 0;
-            int ellenha2 = 0;
-            int ellenél2 = 0;
+            
             enemy_strenght_lbl.Visible = true;
             enemy_healt_lbl.Visible = true;
+            useluck_cb.Visible = true;
             
 
 
@@ -390,8 +393,11 @@ namespace kaland_jatek_form
                 {
                     if(ellenha1 > 0)
                     {
-                        ellenél1 = szornyek[ii].eletero;
-                        ellenha1 = szornyek[ii].ugyesseg;
+                        if (ellenha1 == 0 && ellenél1 == 0)
+                        {
+                            ellenél1 = szornyek[ii].eletero;
+                            ellenha1 = szornyek[ii].ugyesseg;
+                        }
                         enemy_strenght_lbl.Text = $"{szornyek[ii].nev} harc erő: {ellenha1}";
                         enemy_healt_lbl.Text = $"{szornyek[ii].nev} élet erő: {ellenél1}";
                         health_lbl.Text = $"Élet erő: {player.eletero}";
@@ -419,6 +425,7 @@ namespace kaland_jatek_form
                             {
                                 player.eletero -= 2;
                             }
+                            korokdb++;
                         }
                         enemy_strenght_lbl.Text = $"{szornyek[ii].nev} harc erő: {ellenha1}";
                         enemy_healt_lbl.Text = $"{szornyek[ii].nev} élet erő: {ellenél1}";
@@ -428,8 +435,11 @@ namespace kaland_jatek_form
                     }
                     else
                     {
-                        ellenél2 = szornyek[ii+1].eletero;
-                        ellenha2 = szornyek[ii+1].ugyesseg;
+                        if (ellenha2 == 0 && ellenél2 == 0)
+                        {
+                            ellenél2 = szornyek[ii+1].eletero;
+                            ellenha2 = szornyek[ii+1].ugyesseg;
+                        }
                         enemy_strenght_lbl.Text = $"{szornyek[ii+1].nev} harc erő: {ellenha2}";
                         enemy_healt_lbl.Text = $"{szornyek[ii+1].nev} élet erő: {ellenél2}";
                         health_lbl.Text = $"Élet erő: {player.eletero}";
@@ -464,8 +474,16 @@ namespace kaland_jatek_form
                         strenght_lbl.Text = $"Harc erő: {player.ugyesseg}";
                         luck_lbl.Text = $"Szerencse: {player.szerencse}";
                     }
+                    if (korokdb == 1)
+                    {
+                        continue_btn.Visible = true;
+                    }
                     if (player.eletero <= 0)
                     {
+                        ellenél1 = 0;
+                        ellenha1 = 0;
+                        ellenél2 = 0;
+                        ellenha2 = 0;
                         card_lbl.Text = "Meghaltál";
                         start_btn.Text = "Új játék";
                         start_btn.Visible = true;
@@ -474,6 +492,10 @@ namespace kaland_jatek_form
                     }
                     if (ellenél1 <= 0 && ellenél2 <= 0)
                     {
+                        ellenél1 = 0;
+                        ellenha1 = 0;
+                        ellenél2 = 0;
+                        ellenha2 = 0;
                         continue_btn.Visible = true;
                         nextround_btn.Visible = false;
                         kartyak[kovetkezo_kartya].szorny = false;
@@ -484,14 +506,18 @@ namespace kaland_jatek_form
             }
             else
             {
-                ellenél1 = szornyek[ii].eletero;
-                ellenha1 = szornyek[ii].ugyesseg;
+                if (ellenha1 == 0 && ellenél1 == 0)
+                {
+                    ellenél1 = szornyek[ii].eletero;
+                    ellenha1 = szornyek[ii].ugyesseg;
+                }
                 enemy_strenght_lbl.Text = $"{szornyek[ii].nev} harc erő: {ellenha1}";
                 enemy_healt_lbl.Text = $"{szornyek[ii].nev} élet erő: {ellenél1}";
                 health_lbl.Text = $"Élet erő: {player.eletero}";
                 strenght_lbl.Text = $"Harc erő: {player.ugyesseg}";
                 luck_lbl.Text = $"Szerencse: {player.szerencse}";
-               
+
+                
 
                 int pd = dice() + dice();
                 if (player.ugyesseg + pd <= 100)
@@ -505,34 +531,70 @@ namespace kaland_jatek_form
                 }
                 if (player.eletero > 0 && ellenél1 > 0)
                 {
+
                     if (player.ugyesseg > ellenha1)
                     {
+                        if (useluck_cb.Checked)
+                        {
+                            if (szerencse(player.szerencse))
+                            {
+                                ellenél1 -= 2;
+                            }
+                            else
+                            {
+                                ellenél1++;
+                            }
+                            player.szerencse--;
+                        }
                         ellenél1 -= 2;
                     }
                     else if (player.ugyesseg < ellenha1)
                     {
+                        if (useluck_cb.Checked)
+                        {
+                            if (szerencse(player.szerencse))
+                            {
+                                player.eletero++;
+                            }
+                            else
+                            {
+                                player.eletero--;
+                            }
+                            player.szerencse--;
+                        }
                         player.eletero -= 2;
                     }
+                    korokdb++;
                 }
                 enemy_strenght_lbl.Text = $"{szornyek[ii].nev} harc erő: {ellenha1}";
                 enemy_healt_lbl.Text = $"{szornyek[ii].nev} élet erő: {ellenél1}";
                 health_lbl.Text = $"Élet erő: {player.eletero}";
                 strenght_lbl.Text = $"Harc erő: {player.ugyesseg}";
                 luck_lbl.Text = $"Szerencse: {player.szerencse}";
+                if(korokdb == 1)
+                {
+                    continue_btn.Visible = true;
+                }
                 if (player.eletero <= 0)
                 {
+                    ellenél1 = 0;
+                    ellenha1 = 0;
                     card_lbl.Text = "Meghaltál";
                     start_btn.Text = "Új játék";
                     start_btn.Visible = true;
                     nextround_btn.Visible = false;
+                    useluck_cb.Visible = false;
                     ii = 0;
                 }
                 if (ellenél1 <= 0)
                 {
+                    ellenél1 = 0;
+                    ellenha1 = 0;
                     continue_btn.Visible = true;
                     nextround_btn.Visible = false;
                     kartyak[kovetkezo_kartya].szorny = false;
                     ii = 0;
+                    useluck_cb.Visible = false;
                 }
             }   
         }
