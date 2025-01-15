@@ -82,7 +82,7 @@ namespace kaland_jatek_form
             
         }
 
-
+        public PictureBox[] inventory = new PictureBox[8];
         static Random rnd = new Random();
         static kartya[] kartyak = new kartya[200];
         static List<szorny> szornyek = new List<szorny>();
@@ -185,10 +185,38 @@ namespace kaland_jatek_form
             shl_pb.Visible = false;
             ss_pb.Visible = false;
             ssl_pb.Visible = false;
+
+            ph_pb.Visible = false;
+            phl_pb.Visible = false;
+            ps_pb.Visible = false;
+            psl_pb.Visible = false;
+            pl_pb.Visible = false;
+            pll_pb.Visible = false;
+
             fight_btn.Visible = false;
             nextround_btn.Visible = false;
             useluck_cb.Visible = false;
-            
+
+            #region inventory
+            int iosdb = 0;
+            int ilandb = 0;
+            for (int i = 0; i < inventory.Length; i++)
+            {
+                inventory[i] = new PictureBox();
+                inventory[i].Size = new Size(100,100);
+                if(i % 2 == 0)
+                {
+                    inventory[i].Location = new Point(1116, iosdb * 100 + 6);
+                }
+                else
+                {
+                    inventory[i].Location = new Point(1116, ilandb * 100 + 6);
+                }
+                
+            }
+
+            #endregion
+
         }
 
         private void start_btn_Click(object sender, EventArgs e)
